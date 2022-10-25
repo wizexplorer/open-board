@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Board</title>
+    <script src="https://kit.fontawesome.com/09219b5960.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="top-cont">
+        <div class="options-cont">
+            <i class="fa-solid fa-times"></i>
+        </div>
+        <div class="tools-cont-cont">
+            <div class="tools-cont">
+                <div class="pencil-cont">
+                    <img class="pencil" src="icons/pen1.svg" alt="pencil">
+                    <div class="pencil-tool-cont">
+                        <div class="slider pencil-width-cont">
+                            <input class="pencil-width" type="range" min="2" max="10" value="3" oninput="pencilWidthDisplay.innerText = this.value">
+                            <p id="pencilWidthDisplay">3</p>
+                        </div>
+                        <div class="pencil-color-cont">
+                            <div class="black pencil-color"></div>
+                            <div class="red pencil-color"></div>
+                            <div class="blue pencil-color"></div>
+                            <div class="green pencil-color"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="eraser-cont">
+                    <img class="eraser" src="icons/eraser.svg" alt="eraser">
+                    <div class="slider eraser-tool-cont">
+                        <input class="eraser-width" type="range" min="8" max="20" value="12" oninput="eraserWidthDisplay.innerText = this.value">
+                            <p id="eraserWidthDisplay">12</p>
+                        <button class="clear-canvas">Clear Canvas</button>
+                    </div>
+                </div>
+                <img class="download" src="icons/download.svg" alt="download">
+                <img class="upload" src="icons/upload.svg" alt="upload">
+                <img class="sticky" src="icons/sticky-note.svg" alt="sticky-note">
+                <img class="undo" src="icons/undo.svg" alt="undo">
+                <img class="redo" src="icons/redo.svg" alt="redo">
+            </div>
+
+
+
+
+            <!-- <div class="eraser-tool-cont"></div> -->
+        </div>
+    </div>
+
+    <!-- <div class="sticky-cont">
+        <div class="header-cont">
+            <div class="minimize"></div>
+            <div class="remove"></div>
+        </div>
+        <div class="note-cont">
+            <textarea spellcheck="false"></textarea>
+        </div>
+    </div> -->
+
+    <canvas></canvas>
+
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+    <script>
+        let socket = io.connect("http://localhost:3000");
+    </script>
+    <script src="./tools.js"></script>
+    <script src="./canvas.js"></script>
+</body>
+</html>
